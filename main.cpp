@@ -98,38 +98,40 @@ int main() {
         cin.ignore();
 
         switch (pilihan) {
-        case 1: { // Tambah Poliklinik
+        case 1: {
             cout << endl << "=== Tambah Poliklinik ===" << endl;
-            cout << "Nama Poliklinik  : ";
-            getline(cin, nama);
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
+            cout << "Nama Poliklinik  : ";
+            getline(cin, nama);
             insertPolyclinicToList(PL, createPolyclinicElm(nama, kode));
             break;
         }
-        case 2: { // Hapus Poliklinik
+        case 2: {
+            cout << endl << "=== Hapus Poliklinik ===" << endl;
             cout << endl << "Kode Poliklinik yang akan dihapus: ";
             getline(cin, kode);
             deletePolyclinicFromList(PL, kode, RL);
             break;
         }
-        case 3: { // Cari Poliklinik
+        case 3: {
+            cout << endl << "=== Cari Poliklinik ===" << endl;
             cout << endl << "Kode Poliklinik  : ";
             getline(cin, kode);
             printFoundPolyclinic(searchPolyclinic(PL, kode));
             break;
         }
-        case 4: { // Tampilkan Semua Poliklinik
+        case 4: {
             cout << endl << "=== Daftar Semua Poliklinik ===" << endl;
             printAllPolyclinic(PL);
             break;
         }
-        case 5: { // Tambah Dokter
+        case 5: {
             cout << endl << "=== Tambah Dokter ===" << endl;
-            cout << "Nama Dokter      : ";
-            getline(cin, nama);
             cout << "NID Dokter       : ";
             getline(cin, nid);
+            cout << "Nama Dokter      : ";
+            getline(cin, nama);
             cout << "Spesialisasi     : ";
             getline(cin, spec);
             cout << "Jam Praktik      : ";
@@ -140,30 +142,33 @@ int main() {
             insertDoctorToList(DL, createDoctorElm(nama, nid, spec, jam, pengalaman));
             break;
         }
-        case 6: { // Cari Dokter
+        case 6: {
+            cout << endl << "=== Cari Dokter ===" << endl;
             cout << endl << "NID Dokter       : ";
             getline(cin, nid);
             printFoundDoctor(searchDoctor(DL, nid));
             break;
         }
-        case 7: { // Tampilkan Semua Dokter
+        case 7: {
             cout << endl << "=== Daftar Semua Dokter ===" << endl;
             printAllDoctor(DL);
             break;
         }
-        case 8: { // Dokter berdasarkan Spesialisasi
+        case 8: {
+            cout << endl << "=== Cari Dokter Spesialisasi Tertentu ===" << endl;
             cout << endl << "Spesialisasi yang dicari: ";
             getline(cin, spec);
             printDoctorWithSpecialization(DL, spec);
             break;
         }
-        case 9: { // Hapus Dokter
+        case 9: {
+            cout << endl << "=== Hapus Dokter ===" << endl;
             cout << endl << "NID Dokter yang akan dihapus: ";
             getline(cin, nid);
             deleteDoctorFromList(DL, nid, RL);
             break;
         }
-        case 10: { // Tambah Dokter ke Poliklinik
+        case 10: {
             cout << endl << "=== Tambah Dokter ke Poliklinik ===" << endl;
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
@@ -178,7 +183,7 @@ int main() {
             }
             break;
         }
-        case 11: { // Hapus Dokter dari Poliklinik
+        case 11: {
             cout << endl << "=== Hapus Dokter dari Poliklinik ===" << endl;
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
@@ -187,19 +192,21 @@ int main() {
             removeDoctorFromPolyclinic(RL, kode, nid);
             break;
         }
-        case 12: { // Tampilkan Semua Poliklinik & Dokter
+        case 12: {
             cout << endl << "=== Daftar Semua Poliklinik dan Dokter ===" << endl;
             showAllPolyclinicAndDoctors(PL, RL);
             break;
         }
-        case 13: { // Dokter di Poliklinik Tertentu
+        case 13: {
+            cout << endl << "=== Dokter di Poliklinik ===" << endl;
             cout << endl << "Kode Poliklinik  : ";
             getline(cin, kode);
             cout << endl;
             printAllDoctorFromPolyclinic(PL, RL, kode);
             break;
         }
-        case 14: { // Hitung Jumlah Dokter
+        case 14: {
+            cout << endl << "=== Jumlah Dokter di Poliklinik ===" << endl;
             cout << endl << "Kode Poliklinik  : ";
             getline(cin, kode);
             adrPolyclinic poly = searchPolyclinic(PL, kode);
@@ -211,7 +218,7 @@ int main() {
             }
             break;
         }
-        case 15: { // Poliklinik dengan Dokter Terbanyak
+        case 15: {
             cout << endl << "=== Poliklinik dengan Dokter Terbanyak ===" << endl;
             showPolyclinicWithMostDoctor(PL, RL);
             break;

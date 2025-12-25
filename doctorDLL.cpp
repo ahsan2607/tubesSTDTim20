@@ -32,7 +32,7 @@ void insertDoctorToList(doctorList &L, adrDoctor p){
         }
         cout << "Dokter berhasil ditambahkan!" << endl;
     } else {
-        cout << "Kode NID tidak boleh sama, coba pakai masukkan NID lain" << endl;
+        cout << "Kode NID tidak boleh sama, coba pakai masukan NID lain" << endl;
     }
 }
 
