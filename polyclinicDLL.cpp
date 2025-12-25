@@ -29,7 +29,7 @@ void insertPolyclinicToList(polyclinicList &L, adrPolyclinic p) {
         }
         cout << "Poliklinik berhasil ditambahkan!" << endl;
     } else {
-        cout << "Kode Poliklinik tidak boleh sama, coba pakai masukkan kode lain" << endl;
+        cout << "Kode Poliklinik tidak boleh sama, coba pakai masukan kode lain" << endl;
     }
 }
 
@@ -70,7 +70,31 @@ void deletePolyclinicFromList(polyclinicList &L, string code, relationList &RL){
         target->next = nullptr;
         target->prev = nullptr;
         delete deleted;
+        cout << "Poliklinik dan semua relasinya berhasil dihapus!" << endl;
     } else {
-        cout << "Data tidak ditemukan" << endl;
+        cout << "Poliklinik tidak ditemukan" << endl;
     }
+}
+
+void printFoundPolyclinic(adrPolyclinic poly){
+    if (poly != nullptr) {
+        cout << "Kode Poliklinik\t: " << poly->info.code << endl;
+        cout << "Nama Poliklinik\t: " << poly->info.name << endl;
+    } else {
+        cout << "Poliklinik tidak ditemukan" << endl;
+    }
+    cout << endl;
+}
+
+void printAllPolyclinic(polyclinicList L){
+    if (L.first != nullptr) {
+        adrPolyclinic p = L.first;
+        while (p != nullptr) {
+            cout << "Kode Poliklinik\t: " << p->info.code << endl;
+            cout << "Nama Poliklinik\t: " << p->info.name << endl;
+        }
+    } else {
+        cout << "Tidak ada dokter dalam daftar" << endl;
+    }
+    cout << endl;
 }

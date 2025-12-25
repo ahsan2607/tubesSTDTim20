@@ -6,7 +6,7 @@
 #include "relationTypeDLL.h"
 
 void createRelationList(relationList &L);
-adrRelation createRelationElm(adrPolyclinic poly, adrDoctor doct, string practiceHours, int experienceYears);
+adrRelation createRelationElm(adrPolyclinic poly, adrDoctor doct);
 void addDoctorToPolyclinic(relationList &L, adrRelation p);
 adrRelation findRelation(relationList &L, string codePoly, string nidDoctor);
 void removeDoctorFromPolyclinic(relationList &L, string codePoly, string nidDoctor);
@@ -14,5 +14,6 @@ void printAllDoctorFromPolyclinic(polyclinicList PL, relationList RL, string cod
 int countDoctorInPolyclinic(polyclinicList PL, relationList RL, string code);
 void showPolyclinicWithMostDoctor(polyclinicList PL, relationList RL);
 void showAllPolyclinicAndDoctors(polyclinicList PL, relationList RL);
+bool isDoctorAlreadyAssigned(relationList RL, string nid);
 
 #endif // DLL_RELATION_FUNC_H_INCLUDED

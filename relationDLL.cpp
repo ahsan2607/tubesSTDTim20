@@ -9,7 +9,7 @@ void createRelationList(relationList &L){
     L.last = nullptr;
 }
 
-adrRelation createRelationElm(adrPolyclinic poly, adrDoctor doct, string practiceHours, int experienceYears){
+adrRelation createRelationElm(adrPolyclinic poly, adrDoctor doct){
     adrRelation p = new relationElm;
     p->parent = poly;
     p->child = doct;
@@ -19,13 +19,19 @@ adrRelation createRelationElm(adrPolyclinic poly, adrDoctor doct, string practic
 }
 
 void addDoctorToPolyclinic(relationList &L, adrRelation p){
-    if (L.last == nullptr) {
-        L.first = p;
-        L.last = p;
+    if (isDoctorAlreadyAssigned(L, p->child->info.nid)) {
+        delete p;
+        cout << "Tidak bisa menambahkan karena dokter sudah berada di poliklinik lain!" << endl;
     } else {
-        p->prev = L.last;
-        L.last->next = p;
-        L.last = p;
+        if (L.last == nullptr) {
+            L.first = p;
+            L.last = p;
+        } else {
+            p->prev = L.last;
+            L.last->next = p;
+            L.last = p;
+        }
+        cout << "Dokter berhasil ditambahkan ke poliklinik!" << endl;
     }
 }
 
@@ -135,4 +141,16 @@ void showAllPolyclinicAndDoctors(polyclinicList PL, relationList RL){
         p = p->next;
     }
     cout << endl;
+}
+
+bool isDoctorAlreadyAssigned(relationList L, string nid){
+    adrRelation p = L.first;
+    bool isAssigned = false;
+    while (p != nullptr && isAssigned == false) {
+        if (p->child->info.nid == nid) {
+            isAssigned = true;
+        }
+        p = p->next;
+    }
+    return isAssigned;
 }

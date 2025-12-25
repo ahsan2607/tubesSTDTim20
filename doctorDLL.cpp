@@ -1,5 +1,6 @@
 #include <iostream>
 #include "doctorFuncDLL.h"
+#include "relationFuncDLL.h"
 using namespace std;
 
 void createDoctorList(doctorList &L){
@@ -43,7 +44,15 @@ adrDoctor searchDoctor(doctorList L, string nid){
     return p;
 }
 
-void deleteDoctorFromList(doctorList &L, string nid){
+void deleteDoctorFromList(doctorList &L, string nid, relationList &RL){
+    adrRelation p = RL.first;
+    while (p != nullptr) {
+        adrRelation next = p->next;
+        if (p->child->info.nid == nid) {
+            removeDoctorFromPolyclinic(RL, p->parent->info.code, nid);
+        }
+        p = next;
+    }
     adrDoctor deleted;
     adrDoctor target = searchDoctor(L, nid);
     if (target != nullptr) {
@@ -64,7 +73,55 @@ void deleteDoctorFromList(doctorList &L, string nid){
         target->next = nullptr;
         target->prev = nullptr;
         delete deleted;
+        cout << "Dokter berhasil dihapus!" << endl;
     } else {
-        cout << "Data tidak ditemukan" << endl;
+        cout << "Dokter tidak ditemukan" << endl;
     }
+}
+
+void printDoctorWithSpecialization(doctorList L, string specialization){
+    if (L.first != nullptr) {
+        adrDoctor p = L.first;
+        while (p != nullptr) {
+            if (p->info.specialization == specialization) {
+                cout << "-> " << "Kode dokter\t\t: "  << p->info.nid << endl;
+                cout << "   " << "Nama dokter\t\t: "  << p->info.name << endl;
+                cout << "   " << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
+                cout << "   " << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
+                cout << "   " << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
+            }
+            p = p->next;
+        }
+    } else {
+        cout << "Tidak ada dokter dalam daftar" << endl;
+    }
+    cout << endl;
+}
+
+void printFoundDoctor(adrDoctor doct){
+    if (doct != nullptr) {
+        cout << "Kode dokter\t\t: "  << doct->info.nid << endl;
+        cout << "Nama dokter\t\t: "  << doct->info.name << endl;
+        cout << "Spesialisasi dokter\t: "  << doct->info.specialization << endl;
+        cout << "Jam Praktik\t\t: "  << doct->info.practiceHours << endl;
+        cout << "Pengalaman\t\t: "  << doct->info.experienceYears << " tahun" << endl;
+    } else {
+        cout << "Dokter tidak ditemukan" << endl;
+    }
+}
+
+void printAllDoctor(doctorList L){
+    if (L.first != nullptr) {
+        adrDoctor p = L.first;
+        while (p != nullptr) {
+            cout << "Kode dokter\t\t: "  << p->info.nid << endl;
+            cout << "Nama dokter\t\t: "  << p->info.name << endl;
+            cout << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
+            cout << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
+            cout << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
+        }
+    } else {
+        cout << "Tidak ada dokter dalam daftar" << endl;
+    }
+    cout << endl;
 }
