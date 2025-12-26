@@ -63,6 +63,7 @@ void removeDoctorFromPolyclinic(relationList &L, string codePoly, string nidDoct
         }
         target->next = nullptr;
         target->prev = nullptr;
+        cout << "Dokter " << deleted->child->info.name << " dibebastugaskan dari " << deleted->parent->info.name << endl;
         delete deleted;
     } else {
         cout << "Data tidak ditemukan" << endl;

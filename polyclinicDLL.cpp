@@ -90,8 +90,8 @@ void printAllPolyclinic(polyclinicList L){
     if (L.first != nullptr) {
         adrPolyclinic p = L.first;
         while (p != nullptr) {
-            cout << "Kode Poliklinik\t: " << p->info.code << endl;
-            cout << "Nama Poliklinik\t: " << p->info.name << endl;
+            cout << "-> " << "Kode Poliklinik\t: " << p->info.code << endl;
+            cout << "   " << "Nama Poliklinik\t: " << p->info.name << endl;
             p = p->next;
         }
     } else {

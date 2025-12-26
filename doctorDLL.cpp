@@ -82,15 +82,27 @@ void deleteDoctorFromList(doctorList &L, string nid, relationList &RL){
 void printDoctorWithSpecialization(doctorList L, string specialization){
     if (L.first != nullptr) {
         adrDoctor p = L.first;
-        while (p != nullptr) {
+        bool isSpecExist = false;
+        while (p != nullptr && isSpecExist == false) {
             if (p->info.specialization == specialization) {
-                cout << "-> " << "Kode dokter\t\t: "  << p->info.nid << endl;
-                cout << "   " << "Nama dokter\t\t: "  << p->info.name << endl;
-                cout << "   " << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
-                cout << "   " << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
-                cout << "   " << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
+                isSpecExist = true;
             }
             p = p->next;
+        }
+        if (isSpecExist) {
+            p = L.first;
+            while (p != nullptr) {
+                if (p->info.specialization == specialization) {
+                    cout << "-> " << "Kode dokter\t\t: "  << p->info.nid << endl;
+                    cout << "   " << "Nama dokter\t\t: "  << p->info.name << endl;
+                    cout << "   " << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
+                    cout << "   " << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
+                    cout << "   " << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
+                }
+                p = p->next;
+            }
+        } else {
+            cout << "Tidak ada dokter dengan spesialisasi " << specialization << endl;
         }
     } else {
         cout << "Tidak ada dokter dalam daftar" << endl;
@@ -114,11 +126,11 @@ void printAllDoctor(doctorList L){
     if (L.first != nullptr) {
         adrDoctor p = L.first;
         while (p != nullptr) {
-            cout << "Kode dokter\t\t: "  << p->info.nid << endl;
-            cout << "Nama dokter\t\t: "  << p->info.name << endl;
-            cout << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
-            cout << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
-            cout << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
+            cout << "-> " << "Kode dokter\t\t: "  << p->info.nid << endl;
+            cout << "   " << "Nama dokter\t\t: "  << p->info.name << endl;
+            cout << "   " << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
+            cout << "   " << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
+            cout << "   " << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
             p = p->next;
         }
     } else {
