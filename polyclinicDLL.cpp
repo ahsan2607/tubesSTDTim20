@@ -92,6 +92,7 @@ void printAllPolyclinic(polyclinicList L){
         while (p != nullptr) {
             cout << "Kode Poliklinik\t: " << p->info.code << endl;
             cout << "Nama Poliklinik\t: " << p->info.name << endl;
+            p = p->next;
         }
     } else {
         cout << "Tidak ada dokter dalam daftar" << endl;

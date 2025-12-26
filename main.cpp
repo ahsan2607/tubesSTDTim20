@@ -82,10 +82,9 @@ int main() {
     createPolyclinicList(PL);
     createDoctorList(DL);
     createRelationList(RL);
-
     addDummyData(PL, DL, RL);
 
-    int pilihan;
+    string pilihan;
     string kode, nid, nama, spec, jam;
     int pengalaman;
 
@@ -94,39 +93,33 @@ int main() {
         printHeader();
         printMenu();
 
-        cin >> pilihan;
-        cin.ignore();
+        getline(cin, pilihan);
 
-        switch (pilihan) {
-        case 1: {
+        if (pilihan == "1") {
             cout << endl << "=== Tambah Poliklinik ===" << endl;
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
             cout << "Nama Poliklinik  : ";
             getline(cin, nama);
             insertPolyclinicToList(PL, createPolyclinicElm(nama, kode));
-            break;
         }
-        case 2: {
+        else if (pilihan == "2") {
             cout << endl << "=== Hapus Poliklinik ===" << endl;
-            cout << endl << "Kode Poliklinik yang akan dihapus: ";
+            cout << "Kode Poliklinik yang akan dihapus: ";
             getline(cin, kode);
             deletePolyclinicFromList(PL, kode, RL);
-            break;
         }
-        case 3: {
+        else if (pilihan == "3") {
             cout << endl << "=== Cari Poliklinik ===" << endl;
-            cout << endl << "Kode Poliklinik  : ";
+            cout << "Kode Poliklinik  : ";
             getline(cin, kode);
             printFoundPolyclinic(searchPolyclinic(PL, kode));
-            break;
         }
-        case 4: {
+        else if (pilihan == "4") {
             cout << endl << "=== Daftar Semua Poliklinik ===" << endl;
             printAllPolyclinic(PL);
-            break;
         }
-        case 5: {
+        else if (pilihan == "5") {
             cout << endl << "=== Tambah Dokter ===" << endl;
             cout << "NID Dokter       : ";
             getline(cin, nid);
@@ -140,35 +133,30 @@ int main() {
             cin >> pengalaman;
             cin.ignore();
             insertDoctorToList(DL, createDoctorElm(nama, nid, spec, jam, pengalaman));
-            break;
         }
-        case 6: {
+        else if (pilihan == "6") {
             cout << endl << "=== Cari Dokter ===" << endl;
-            cout << endl << "NID Dokter       : ";
+            cout << "NID Dokter       : ";
             getline(cin, nid);
             printFoundDoctor(searchDoctor(DL, nid));
-            break;
         }
-        case 7: {
+        else if (pilihan == "7") {
             cout << endl << "=== Daftar Semua Dokter ===" << endl;
             printAllDoctor(DL);
-            break;
         }
-        case 8: {
+        else if (pilihan == "8") {
             cout << endl << "=== Cari Dokter Spesialisasi Tertentu ===" << endl;
-            cout << endl << "Spesialisasi yang dicari: ";
+            cout << "Spesialisasi yang dicari: ";
             getline(cin, spec);
             printDoctorWithSpecialization(DL, spec);
-            break;
         }
-        case 9: {
+        else if (pilihan == "9") {
             cout << endl << "=== Hapus Dokter ===" << endl;
-            cout << endl << "NID Dokter yang akan dihapus: ";
+            cout << "NID Dokter yang akan dihapus: ";
             getline(cin, nid);
             deleteDoctorFromList(DL, nid, RL);
-            break;
         }
-        case 10: {
+        else if (pilihan == "10") {
             cout << endl << "=== Tambah Dokter ke Poliklinik ===" << endl;
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
@@ -176,67 +164,55 @@ int main() {
             getline(cin, nid);
             adrPolyclinic poly = searchPolyclinic(PL, kode);
             adrDoctor doct = searchDoctor(DL, nid);
-            if (poly && doct) {
+            if (poly && doct)
                 addDoctorToPolyclinic(RL, createRelationElm(poly, doct));
-            } else {
+            else
                 cout << "Poliklinik atau Dokter tidak ditemukan!" << endl;
-            }
-            break;
         }
-        case 11: {
+        else if (pilihan == "11") {
             cout << endl << "=== Hapus Dokter dari Poliklinik ===" << endl;
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
             cout << "NID Dokter       : ";
             getline(cin, nid);
             removeDoctorFromPolyclinic(RL, kode, nid);
-            break;
         }
-        case 12: {
+        else if (pilihan == "12") {
             cout << endl << "=== Daftar Semua Poliklinik dan Dokter ===" << endl;
             showAllPolyclinicAndDoctors(PL, RL);
-            break;
         }
-        case 13: {
+        else if (pilihan == "13") {
             cout << endl << "=== Dokter di Poliklinik ===" << endl;
-            cout << endl << "Kode Poliklinik  : ";
+            cout << "Kode Poliklinik  : ";
             getline(cin, kode);
-            cout << endl;
             printAllDoctorFromPolyclinic(PL, RL, kode);
-            break;
         }
-        case 14: {
+        else if (pilihan == "14") {
             cout << endl << "=== Jumlah Dokter di Poliklinik ===" << endl;
-            cout << endl << "Kode Poliklinik  : ";
+            cout << "Kode Poliklinik  : ";
             getline(cin, kode);
-            adrPolyclinic poly = searchPolyclinic(PL, kode);
-            if (poly) {
-                int jumlah = countDoctorInPolyclinic(PL, RL, kode);
-                cout << "Jumlah dokter    : " << jumlah << " orang" << endl;
-            } else {
-                cout << "Poliklinik tidak ditemukan!" << endl;
-            }
-            break;
+            cout << "Jumlah dokter    : "
+                 << countDoctorInPolyclinic(PL, RL, kode)
+                 << " orang" << endl;
         }
-        case 15: {
+        else if (pilihan == "15") {
             cout << endl << "=== Poliklinik dengan Dokter Terbanyak ===" << endl;
             showPolyclinicWithMostDoctor(PL, RL);
-            break;
         }
-        case 0: {
+        else if (pilihan == "0") {
             cout << endl << "Terima kasih! Program selesai." << endl;
-            break;
         }
-        default:
+        else {
             cout << endl << "Pilihan tidak valid!" << endl;
         }
 
-        if (pilihan != 0) {
+        if (pilihan != "0") {
             cout << endl << "Tekan Enter untuk kembali ke menu...";
-            cin.get();
+            getline(cin, pilihan);
         }
 
-    } while (pilihan != 0);
+    } while (pilihan != "0");
 
     return 0;
 }
+

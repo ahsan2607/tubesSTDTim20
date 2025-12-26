@@ -119,6 +119,7 @@ void printAllDoctor(doctorList L){
             cout << "Spesialisasi dokter\t: "  << p->info.specialization << endl;
             cout << "Jam Praktik\t\t: "  << p->info.practiceHours << endl;
             cout << "Pengalaman\t\t: "  << p->info.experienceYears << " tahun" << endl;
+            p = p->next;
         }
     } else {
         cout << "Tidak ada dokter dalam daftar" << endl;
