@@ -14,7 +14,11 @@ adrDoctor createDoctorElm(string name, string nid, string specialization, string
     p->info.nid = nid;
     p->info.specialization = specialization;
     p->info.practiceHours = practiceHours;
-    p->info.experienceYears = experienceYears;
+    if (experienceYears < 0) {
+        p->info.experienceYears = 0;
+    } else {
+        p->info.experienceYears = experienceYears;
+    }
     p->prev = nullptr;
     p->next = nullptr;
     return p;
@@ -73,7 +77,7 @@ void deleteDoctorFromList(doctorList &L, string nid, relationList &RL){
         target->next = nullptr;
         target->prev = nullptr;
         delete deleted;
-        cout << "Dokter berhasil dihapus!" << endl;
+        cout << "Dokter berhasil diberhentikan!" << endl;
     } else {
         cout << "Dokter tidak ditemukan" << endl;
     }

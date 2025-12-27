@@ -19,19 +19,24 @@ adrRelation createRelationElm(adrPolyclinic poly, adrDoctor doct){
 }
 
 void addDoctorToPolyclinic(relationList &L, adrRelation p){
-    if (isDoctorAlreadyAssigned(L, p->child->info.nid)) {
-        delete p;
-        cout << "Tidak bisa menambahkan karena dokter sudah berada di poliklinik lain!" << endl;
-    } else {
-        if (L.last == nullptr) {
-            L.first = p;
-            L.last = p;
+    if (findRelation(L, p->parent->info.code, p->child->info.nid) == nullptr) {
+        if (isDoctorAlreadyAssigned(L, p->child->info.nid)) {
+            delete p;
+            cout << "Tidak bisa menambahkan karena dokter sudah berada di poliklinik lain!" << endl;
         } else {
-            p->prev = L.last;
-            L.last->next = p;
-            L.last = p;
+            if (L.last == nullptr) {
+                L.first = p;
+                L.last = p;
+            } else {
+                p->prev = L.last;
+                L.last->next = p;
+                L.last = p;
+            }
+            cout << "Dokter berhasil ditambahkan ke poliklinik!" << endl;
         }
-        cout << "Dokter berhasil ditambahkan ke poliklinik!" << endl;
+    } else {
+        delete p;
+        cout << "Dokter sudah ditugaskan di poliklinik tersebut!" << endl;
     }
 }
 
@@ -72,16 +77,30 @@ void removeDoctorFromPolyclinic(relationList &L, string codePoly, string nidDoct
 
 void printAllDoctorFromPolyclinic(polyclinicList PL, relationList RL, string code){
     adrPolyclinic target = searchPolyclinic(PL, code);
-    adrRelation p = RL.first;
-    while (p != nullptr) {
-        if (p->parent == target) {
-            cout << "-> " << "Kode dokter\t\t: "  << p->child->info.nid << endl;
-            cout << "   " << "Nama dokter\t\t: "  << p->child->info.name << endl;
-            cout << "   " << "Spesialisasi dokter\t: "  << p->child->info.specialization << endl;
-            cout << "   " << "Jam Praktik\t\t: "  << p->child->info.practiceHours << endl;
-            cout << "   " << "Pengalaman\t\t: "  << p->child->info.experienceYears << " tahun" << endl;
+    if (PL.first != nullptr) {
+        adrPolyclinic p = PL.first;
+        bool isPolyExist = false;
+        while (p != nullptr && isPolyExist == false) {
+            if (p->info.code == code) {
+                isPolyExist = true;
+            }
+            p = p->next;
         }
-        p = p->next;
+        if (isPolyExist) {
+            adrRelation q = RL.first;
+            while (q != nullptr) {
+                if (q->parent == target) {
+                    cout << "-> " << "Kode dokter\t\t: "  << q->child->info.nid << endl;
+                    cout << "   " << "Nama dokter\t\t: "  << q->child->info.name << endl;
+                    cout << "   " << "Spesialisasi dokter\t: "  << q->child->info.specialization << endl;
+                    cout << "   " << "Jam Praktik\t\t: "  << q->child->info.practiceHours << endl;
+                    cout << "   " << "Pengalaman\t\t: "  << q->child->info.experienceYears << " tahun" << endl;
+                }
+                q = q->next;
+            }
+        } else {
+           cout << "Poliklinik tidak ditemukan" << endl;
+        }
     }
     cout << endl;
 }
@@ -122,26 +141,30 @@ void showPolyclinicWithMostDoctor(polyclinicList PL, relationList RL){
 }
 
 void showAllPolyclinicAndDoctors(polyclinicList PL, relationList RL){
-    adrPolyclinic p = PL.first;
-    while (p != nullptr) {
-        cout << "Kode Poliklinik\t: " << p->info.code << endl;
-        cout << "Nama Poliklinik\t: " << p->info.name << endl;
-        cout << "Daftar dokter:\t\t" << endl;
-        adrRelation q = RL.first;
-        while (q != nullptr) {
-            if (q->parent == p) {
-                cout << "-> " << "Kode dokter\t\t: "  << q->child->info.nid << endl;
-                cout << "   " << "Nama dokter\t\t: "  << q->child->info.name << endl;
-                cout << "   " << "Spesialisasi dokter\t: "  << q->child->info.specialization << endl;
-                cout << "   " << "Jam Praktik\t\t: "  << q->child->info.practiceHours << endl;
-                cout << "   " << "Pengalaman\t\t: "  << q->child->info.experienceYears << " tahun" << endl;
+    if (PL.first != nullptr){
+        adrPolyclinic p = PL.first;
+        while (p != nullptr) {
+            cout << "Kode Poliklinik\t: " << p->info.code << endl;
+            cout << "Nama Poliklinik\t: " << p->info.name << endl;
+            cout << "Daftar dokter:\t\t" << endl;
+            adrRelation q = RL.first;
+            while (q != nullptr) {
+                if (q->parent == p) {
+                    cout << "-> " << "Kode dokter\t\t: "  << q->child->info.nid << endl;
+                    cout << "   " << "Nama dokter\t\t: "  << q->child->info.name << endl;
+                    cout << "   " << "Spesialisasi dokter\t: "  << q->child->info.specialization << endl;
+                    cout << "   " << "Jam Praktik\t\t: "  << q->child->info.practiceHours << endl;
+                    cout << "   " << "Pengalaman\t\t: "  << q->child->info.experienceYears << " tahun" << endl;
+                }
+                q = q->next;
             }
-            q = q->next;
+            cout << endl;
+            p = p->next;
         }
         cout << endl;
-        p = p->next;
+    } else {
+        cout << "Tidak ada poliklinik" << endl;
     }
-    cout << endl;
 }
 
 bool isDoctorAlreadyAssigned(relationList L, string nid){

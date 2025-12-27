@@ -46,34 +46,6 @@ void printMenu() {
     cout << "Pilih: ";
 }
 
-void addDummyData(polyclinicList &PL, doctorList &DL, relationList &RL) {
-    insertPolyclinicToList(PL, createPolyclinicElm("Poliklinik Jantung", "JANTUNG"));
-    insertPolyclinicToList(PL, createPolyclinicElm("Poliklinik Saraf", "SARAF"));
-    insertPolyclinicToList(PL, createPolyclinicElm("Poliklinik Anak", "ANAK"));
-    insertPolyclinicToList(PL, createPolyclinicElm("Poliklinik Gigi", "GIGI"));
-
-    adrDoctor d1 = createDoctorElm("dr. Ahmad Sp.JP", "D001", "Jantung", "08:00-16:00", 15);
-    adrDoctor d2 = createDoctorElm("dr. Budi Sp.JP", "D002", "Jantung", "09:00-17:00", 10);
-    adrDoctor d3 = createDoctorElm("dr. Citra Sp.S", "D003", "Saraf", "10:00-18:00", 12);
-    adrDoctor d4 = createDoctorElm("dr. Diana Sp.A", "D004", "Anak", "07:00-15:00", 8);
-    adrDoctor d5 = createDoctorElm("dr. Eko Sp.KG", "D005", "Gigi dan Mulut", "08:00-14:00", 20);
-    adrDoctor d6 = createDoctorElm("dr. Fajar Sp.JP", "D006", "Jantung", "13:00-21:00", 5);
-
-    insertDoctorToList(DL, d1);
-    insertDoctorToList(DL, d2);
-    insertDoctorToList(DL, d3);
-    insertDoctorToList(DL, d4);
-    insertDoctorToList(DL, d5);
-    insertDoctorToList(DL, d6);
-
-    addDoctorToPolyclinic(RL, createRelationElm(searchPolyclinic(PL, "JANTUNG"), d1));
-    addDoctorToPolyclinic(RL, createRelationElm(searchPolyclinic(PL, "JANTUNG"), d2));
-    addDoctorToPolyclinic(RL, createRelationElm(searchPolyclinic(PL, "JANTUNG"), d6));
-    addDoctorToPolyclinic(RL, createRelationElm(searchPolyclinic(PL, "SARAF"), d3));
-    addDoctorToPolyclinic(RL, createRelationElm(searchPolyclinic(PL, "ANAK"), d4));
-    addDoctorToPolyclinic(RL, createRelationElm(searchPolyclinic(PL, "GIGI"), d5));
-}
-
 int main() {
     polyclinicList PL;
     doctorList DL;
@@ -82,16 +54,44 @@ int main() {
     createPolyclinicList(PL);
     createDoctorList(DL);
     createRelationList(RL);
-    addDummyData(PL, DL, RL);
 
     string pilihan;
     string kode, nid, nama, spec, jam;
     int pengalaman;
 
     do {
-        cout << string(50, '\n');
-        printHeader();
-        printMenu();
+        cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+        cout << "===================================================" << endl;
+        cout << "          SISTEM ADMINISTRASI RUMAH SAKIT" << endl;
+        cout << "             Poliklinik & Dokter (DLL)" << endl;
+        cout << "===================================================" << endl;
+
+        cout << endl << "--- POLIKLINIK ---" << endl;
+        cout << "1. Tambah Poliklinik" << endl;
+        cout << "2. Hapus Poliklinik" << endl;
+        cout << "3. Cari dan Tampilkan Poliklinik" << endl;
+        cout << "4. Tampilkan Semua Poliklinik" << endl;
+
+        cout << endl << "--- DOKTER ---" << endl;
+        cout << "5. Tambah Dokter" << endl;
+        cout << "6. Cari dan Tampilkan Dokter" << endl;
+        cout << "7. Tampilkan Semua Dokter" << endl;
+        cout << "8. Tampilkan Dokter dengan Spesialisasi Tertentu" << endl;
+        cout << "9. Hapus Dokter" << endl;
+
+        cout << endl << "--- PENUGASAN DOKTER KE POLIKLINIK ---" << endl;
+        cout << "10. Tambah Dokter ke Poliklinik" << endl;
+        cout << "11. Hapus Dokter dari Poliklinik" << endl;
+
+        cout << endl << "--- LAPORAN & QUERY ---" << endl;
+        cout << "12. Tampilkan Semua Poliklinik & Dokter" << endl;
+        cout << "13. Tampilkan Dokter di Poliklinik Tertentu" << endl;
+        cout << "14. Hitung Jumlah Dokter di Poliklinik" << endl;
+        cout << "15. Poliklinik dengan Dokter Terbanyak" << endl;
+
+        cout << endl << "0. Keluar" << endl;
+        cout << "===================================================" << endl;
+        cout << "Pilih: ";
 
         getline(cin, pilihan);
 
@@ -101,7 +101,11 @@ int main() {
             getline(cin, kode);
             cout << "Nama Poliklinik  : ";
             getline(cin, nama);
-            insertPolyclinicToList(PL, createPolyclinicElm(nama, kode));
+            if (kode != "" && nama != ""){
+                insertPolyclinicToList(PL, createPolyclinicElm(nama, kode));
+            } else {
+                cout << "Tidak boleh ada input kosong" << endl;
+            }
         }
         else if (pilihan == "2") {
             cout << endl << "=== Hapus Poliklinik ===" << endl;
@@ -132,7 +136,11 @@ int main() {
             cout << "Pengalaman(tahun): ";
             cin >> pengalaman;
             cin.ignore();
-            insertDoctorToList(DL, createDoctorElm(nama, nid, spec, jam, pengalaman));
+            if (nid != "" && nama != "" && spec != "" && jam != ""){
+                insertDoctorToList(DL, createDoctorElm(nama, nid, spec, jam, pengalaman));
+            } else {
+                cout << "Tidak boleh ada input kosong" << endl;
+            }
         }
         else if (pilihan == "6") {
             cout << endl << "=== Cari Dokter ===" << endl;
@@ -164,10 +172,16 @@ int main() {
             getline(cin, nid);
             adrPolyclinic poly = searchPolyclinic(PL, kode);
             adrDoctor doct = searchDoctor(DL, nid);
-            if (poly && doct) {
+            if (poly != nullptr && doct != nullptr) {
                 addDoctorToPolyclinic(RL, createRelationElm(poly, doct));
             } else {
-                cout << "Poliklinik atau Dokter tidak ditemukan!" << endl;
+                if (poly == nullptr) {
+                    cout << "Poliklinik tidak ditemukan!" << endl;
+                } else if (doct == nullptr) {
+                    cout << "Dokter tidak ditemukan!" << endl;
+                } else {
+                    cout << "Poliklinik atau Dokter tidak ditemukan!" << endl;
+                }
             }
         }
         else if (pilihan == "11") {

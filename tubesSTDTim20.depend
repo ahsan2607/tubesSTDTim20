@@ -81,8 +81,102 @@
 	"polyclinicFuncDLL.h"
 	"relationFuncDLL.h"
 
-1766751590 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\relationdll.cpp
+1766806353 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\relationdll.cpp
 	<iostream>
+	"doctorFuncDLL.h"
+	"polyclinicFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766804249 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\doctordll.cpp
+	<iostream>
+	"doctorFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766804886 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\doctorfuncdll.h
+	"doctorTypeDLL.h"
+	"relationTypeDLL.h"
+
+1765624892 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\doctortypedll.h
+	<iostream>
+
+1765625449 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\relationtypedll.h
+	<iostream>
+	"doctorTypeDLL.h"
+	"polyclinicTypeDLL.h"
+
+1765619425 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\polyclinictypedll.h
+	<iostream>
+
+1766803896 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\relationfuncdll.h
+	"doctorTypeDLL.h"
+	"polyclinicTypeDLL.h"
+	"relationTypeDLL.h"
+
+1766833741 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\main.cpp
+	<iostream>
+	<string>
+	"doctorFuncDLL.h"
+	"polyclinicFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766803997 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\polyclinicfuncdll.h
+	"polyclinicTypeDLL.h"
+	"relationTypeDLL.h"
+
+1766804005 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\polyclinicdll.cpp
+	<iostream>
+	"polyclinicFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766806353 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-20\sistem administrasi rumah sakit mll-02\relationdll.cpp
+	<iostream>
+	"doctorFuncDLL.h"
+	"polyclinicFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766804249 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\doctordll.cpp
+	<iostream>
+	"doctorFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766804886 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\doctorfuncdll.h
+	"doctorTypeDLL.h"
+	"relationTypeDLL.h"
+
+1765624892 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\doctortypedll.h
+	<iostream>
+
+1765625449 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\relationtypedll.h
+	<iostream>
+	"doctorTypeDLL.h"
+	"polyclinicTypeDLL.h"
+
+1765619425 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\polyclinictypedll.h
+	<iostream>
+
+1766803896 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\relationfuncdll.h
+	"doctorTypeDLL.h"
+	"polyclinicTypeDLL.h"
+	"relationTypeDLL.h"
+
+1766804005 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\polyclinicdll.cpp
+	<iostream>
+	"polyclinicFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766803997 d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\polyclinicfuncdll.h
+	"polyclinicTypeDLL.h"
+	"relationTypeDLL.h"
+
+1766847736 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\relationdll.cpp
+	<iostream>
+	"doctorFuncDLL.h"
+	"polyclinicFuncDLL.h"
+	"relationFuncDLL.h"
+
+1766845698 source:d:\kuliah\tugas\struktur data\if-48-01_tim20_mll-02\sistem administrasi rumah sakit mll-02\main.cpp
+	<iostream>
+	<string>
 	"doctorFuncDLL.h"
 	"polyclinicFuncDLL.h"
 	"relationFuncDLL.h"

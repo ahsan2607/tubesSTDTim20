@@ -70,7 +70,7 @@ void deletePolyclinicFromList(polyclinicList &L, string code, relationList &RL){
         target->next = nullptr;
         target->prev = nullptr;
         delete deleted;
-        cout << "Poliklinik dan semua relasinya berhasil dihapus!" << endl;
+        cout << "Poliklinik dihapus dan semua dokternya dibebastugaskan!" << endl;
     } else {
         cout << "Poliklinik tidak ditemukan" << endl;
     }
@@ -95,7 +95,7 @@ void printAllPolyclinic(polyclinicList L){
             p = p->next;
         }
     } else {
-        cout << "Tidak ada dokter dalam daftar" << endl;
+        cout << "Tidak ada poliklinik dalam daftar" << endl;
     }
     cout << endl;
 }
