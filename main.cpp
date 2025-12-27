@@ -164,10 +164,11 @@ int main() {
             getline(cin, nid);
             adrPolyclinic poly = searchPolyclinic(PL, kode);
             adrDoctor doct = searchDoctor(DL, nid);
-            if (poly && doct)
+            if (poly && doct) {
                 addDoctorToPolyclinic(RL, createRelationElm(poly, doct));
-            else
+            } else {
                 cout << "Poliklinik atau Dokter tidak ditemukan!" << endl;
+            }
         }
         else if (pilihan == "11") {
             cout << endl << "=== Hapus Dokter dari Poliklinik ===" << endl;
@@ -191,9 +192,7 @@ int main() {
             cout << endl << "=== Jumlah Dokter di Poliklinik ===" << endl;
             cout << "Kode Poliklinik  : ";
             getline(cin, kode);
-            cout << "Jumlah dokter    : "
-                 << countDoctorInPolyclinic(PL, RL, kode)
-                 << " orang" << endl;
+            cout << "Jumlah dokter    : " << countDoctorInPolyclinic(PL, RL, kode) << " orang" << endl;
         }
         else if (pilihan == "15") {
             cout << endl << "=== Poliklinik dengan Dokter Terbanyak ===" << endl;

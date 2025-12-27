@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1766746513 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\main.cpp
+1766751934 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\main.cpp
 	<iostream>
 	<string>
 	"doctorFuncDLL.h"
@@ -47,19 +47,19 @@
 	"DLL_polyclinic.h"
 	"DLL_relation.h"
 
-1766751472 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\doctordll.cpp
+1766804249 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\doctordll.cpp
 	<iostream>
 	"doctorFuncDLL.h"
 	"relationFuncDLL.h"
 
-1766666741 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\doctorfuncdll.h
+1766804886 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\doctorfuncdll.h
 	"doctorTypeDLL.h"
 	"relationTypeDLL.h"
 
 1765624892 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\doctortypedll.h
 	<iostream>
 
-1766666747 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\polyclinicfuncdll.h
+1766803997 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\polyclinicfuncdll.h
 	"polyclinicTypeDLL.h"
 	"relationTypeDLL.h"
 
@@ -71,17 +71,17 @@
 	"doctorTypeDLL.h"
 	"polyclinicTypeDLL.h"
 
-1766654076 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\relationfuncdll.h
+1766803896 d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\relationfuncdll.h
 	"doctorTypeDLL.h"
 	"polyclinicTypeDLL.h"
 	"relationTypeDLL.h"
 
-1766750808 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\polyclinicdll.cpp
+1766804005 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\polyclinicdll.cpp
 	<iostream>
 	"polyclinicFuncDLL.h"
 	"relationFuncDLL.h"
 
-1766751367 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\relationdll.cpp
+1766751590 source:d:\kuliah\tugas\struktur data\tugas besar\tubesstdtim20\relationdll.cpp
 	<iostream>
 	"doctorFuncDLL.h"
 	"polyclinicFuncDLL.h"
