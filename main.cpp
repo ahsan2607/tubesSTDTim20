@@ -23,7 +23,7 @@ int main() {
         cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
         cout << "===================================================" << endl;
         cout << "          SISTEM ADMINISTRASI RUMAH SAKIT" << endl;
-        cout << "             Poliklinik & Dokter (DLL)" << endl;
+        cout << "               Poliklinik dan Dokter" << endl;
         cout << "===================================================" << endl;
 
         cout << endl << "--- POLIKLINIK ---" << endl;
@@ -43,8 +43,8 @@ int main() {
         cout << "10. Tambah Dokter ke Poliklinik" << endl;
         cout << "11. Hapus Dokter dari Poliklinik" << endl;
 
-        cout << endl << "--- LAPORAN & QUERY ---" << endl;
-        cout << "12. Tampilkan Semua Poliklinik & Dokter" << endl;
+        cout << endl << "--- LAPORAN DAN QUERY ---" << endl;
+        cout << "12. Tampilkan Semua Poliklinik dan Dokter" << endl;
         cout << "13. Tampilkan Dokter di Poliklinik Tertentu" << endl;
         cout << "14. Hitung Jumlah Dokter di Poliklinik" << endl;
         cout << "15. Poliklinik dengan Dokter Terbanyak" << endl;
