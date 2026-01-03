@@ -6,46 +6,6 @@
 
 using namespace std;
 
-void printHeader() {
-    cout << "===================================================" << endl;
-    cout << "          SISTEM ADMINISTRASI RUMAH SAKIT" << endl;
-    cout << "             Poliklinik & Dokter (DLL)" << endl;
-    cout << "===================================================" << endl;
-}
-
-void printMenu() {
-    cout << "===================================================" << endl;
-    cout << "                  MENU UTAMA" << endl;
-    cout << "===================================================" << endl;
-
-    cout << endl << "--- POLIKLINIK ---" << endl;
-    cout << "1. Tambah Poliklinik" << endl;
-    cout << "2. Hapus Poliklinik" << endl;
-    cout << "3. Cari dan Tampilkan Poliklinik" << endl;
-    cout << "4. Tampilkan Semua Poliklinik" << endl;
-
-    cout << endl << "--- DOKTER ---" << endl;
-    cout << "5. Tambah Dokter" << endl;
-    cout << "6. Cari dan Tampilkan Dokter" << endl;
-    cout << "7. Tampilkan Semua Dokter" << endl;
-    cout << "8. Tampilkan Dokter dengan Spesialisasi Tertentu" << endl;
-    cout << "9. Hapus Dokter" << endl;
-
-    cout << endl << "--- PENUGASAN DOKTER KE POLIKLINIK ---" << endl;
-    cout << "10. Tambah Dokter ke Poliklinik" << endl;
-    cout << "11. Hapus Dokter dari Poliklinik" << endl;
-
-    cout << endl << "--- LAPORAN & QUERY ---" << endl;
-    cout << "12. Tampilkan Semua Poliklinik & Dokter" << endl;
-    cout << "13. Tampilkan Dokter di Poliklinik Tertentu" << endl;
-    cout << "14. Hitung Jumlah Dokter di Poliklinik" << endl;
-    cout << "15. Poliklinik dengan Dokter Terbanyak" << endl;
-
-    cout << endl << "0. Keluar" << endl;
-    cout << "===================================================" << endl;
-    cout << "Pilih: ";
-}
-
 int main() {
     polyclinicList PL;
     doctorList DL;
@@ -55,7 +15,7 @@ int main() {
     createDoctorList(DL);
     createRelationList(RL);
 
-    string pilihan;
+    string pilihan, pause;
     string kode, nid, nama, spec, jam;
     int pengalaman;
 
@@ -135,12 +95,12 @@ int main() {
             getline(cin, jam);
             cout << "Pengalaman(tahun): ";
             cin >> pengalaman;
-            cin.ignore();
             if (nid != "" && nama != "" && spec != "" && jam != ""){
                 insertDoctorToList(DL, createDoctorElm(nama, nid, spec, jam, pengalaman));
             } else {
                 cout << "Tidak boleh ada input kosong" << endl;
             }
+            getline(cin, pause);
         }
         else if (pilihan == "6") {
             cout << endl << "=== Cari Dokter ===" << endl;
@@ -221,7 +181,7 @@ int main() {
 
         if (pilihan != "0") {
             cout << endl << "Tekan Enter untuk kembali ke menu...";
-            getline(cin, pilihan);
+            getline(cin, pause);
         }
 
     } while (pilihan != "0");
